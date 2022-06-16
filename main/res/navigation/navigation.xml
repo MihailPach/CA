@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/settings">
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.example.mvvm.fragment.SettingFragment"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/to_night_mode"
+            app:destination="@id/night_mode"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/to_language"
+            app:destination="@id/language"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/to_list_view"
+            app:destination="@id/list_view"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/night_mode"
+        android:name="com.example.mvvm.nightmode.NightModeFragment"
+        tools:layout="@layout/fragment_night_mode" />
+    <fragment
+        android:id="@+id/language"
+        android:name="com.example.mvvm.language.LanguageFragment"
+        tools:layout="@layout/fragment_language" />
+    <fragment
+        android:id="@+id/list_view"
+        android:name="com.example.mvvm.fragment.ListFragment"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/details"
+            app:destination="@id/details" />
+    </fragment>
+    <fragment
+        android:id="@+id/details"
+        android:name="com.example.mvvm.fragment.DetailsFragment"
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
+</navigation>
